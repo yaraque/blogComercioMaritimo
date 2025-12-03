@@ -1,93 +1,245 @@
+/* --- VARIABLES (Paleta Moderna Azul/Negro) --- */
 :root {
-    --color-primario: #003366; /* Azul Marino Profundo (Ingeniería/Mar) */
-    --color-secundario: #FF6600; /* Naranja (Comercio/Alerta) */
-    --color-fondo: #F4F6F7; /* Gris muy claro */
-    --color-texto: #333;
+    --bg-body: #121212;       /* Negro suave de fondo */
+    --bg-card: #1E1E1E;       /* Gris oscuro para contenedores */
+    --bg-input: #2D2D2D;      /* Gris para inputs */
+    
+    --azul-neon: #3b82f6;     /* Azul vibrante moderno */
+    --azul-oscuro: #1e40af;   /* Azul más serio para bordes/hover */
+    
+    --texto-principal: #E0E0E0; /* Blanco hueso (no quema la vista) */
+    --texto-secundario: #A0A0A0; /* Gris para textos menos importantes */
+    
+    --borde-radio: 12px;      /* Bordes más redondeados = más moderno */
+    --sombra: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra profunda */
+}
+
+/* --- RESET BÁSICO --- */
+* {
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
+    font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--texto-principal);
     margin: 0;
     padding: 0;
+    line-height: 1.6;
 }
 
-/* Navegación */
+/* --- NAVEGACIÓN (Estilo Glassmorphism) --- */
 header {
-    background-color: var(--color-primario);
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: rgba(30, 30, 30, 0.95); /* Semitransparente */
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Efecto vidrio borroso moderno */
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
     margin: 0;
 }
 
 nav a {
-    color: white;
+    color: var(--texto-principal);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
     text-transform: uppercase;
-    transition: color 0.3s;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 20px; /* Botones tipo cápsula */
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
 nav a:hover {
-    color: var(--color-secundario);
+    background-color: var(--azul-neon);
+    color: white;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); /* Resplandor azul */
 }
 
-/* Contenedores */
+/* --- CONTENEDORES --- */
 .container {
-    max-width: 900px;
+    width: 90%;
+    max-width: 1000px;
     margin: 40px auto;
-    background: white;
+    background: var(--bg-card);
     padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra);
+    border: 1px solid #333; /* Borde sutil */
 }
 
-h1 { color: var(--color-primario); border-bottom: 3px solid var(--color-secundario); display: inline-block; }
-h2 { color: var(--color-secundario); margin-top: 30px;}
-
-/* Formulario de Comentarios */
-.comment-section {
-    margin-top: 50px;
-    border-top: 2px solid #ddd;
-    padding-top: 20px;
+/* --- TIPOGRAFÍA --- */
+h1 {
+    color: var(--azul-neon);
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    border-bottom: 2px solid var(--azul-oscuro);
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.form-group { margin-bottom: 15px; }
+h2 {
+    color: white;
+    margin-top: 40px;
+    font-size: 1.5rem;
+}
+
+h3 {
+    color: var(--texto-secundario);
+}
+
+p, li {
+    color: #cccccc;
+}
+
+/* --- IMÁGENES --- */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--borde-radio);
+    display: block;
+    margin: 20px auto;
+    box-shadow: var(--sombra);
+    border: 2px solid #333;
+}
+
+/* --- FORMULARIOS (Adaptados a Dark Mode) --- */
 input, select, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 5px;
+    padding: 15px;
+    background-color: var(--bg-input);
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    margin-top: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border 0.3s;
 }
 
-button.btn-enviar {
-    background-color: var(--color-secundario);
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--azul-neon); /* Borde azul al escribir */
+}
+
+/* --- BOTONES --- */
+button.btn-enviar, .btn-enviar {
+    background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-neon));
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 15px 30px;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
+    font-size: 1rem;
+    border-radius: 8px;
     width: 100%;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-button.btn-enviar:hover { background-color: #e65c00; }
+button.btn-enviar:hover, .btn-enviar:hover {
+    transform: translateY(-2px); /* Se eleva un poco */
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
 
-/* Caja de Comentarios mostrados */
-.comentario-item {
-    background: #f9f9f9;
-    border-left: 4px solid var(--color-primario);
-    padding: 15px;
+/* --- TARJETAS EQUIPO --- */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.student-card {
+    background: #252525;
+    padding: 30px;
+    text-align: center;
+    border-radius: var(--borde-radio);
+    border-top: 4px solid var(--azul-neon);
+    transition: transform 0.3s;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    background: #2a2a2a;
+}
+
+.student-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--azul-neon);
     margin-bottom: 15px;
 }
-.stars { color: var(--color-secundario); font-weight: bold; }
+
+/* --- TABLAS --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-input);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th {
+    background-color: var(--azul-oscuro);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #444;
+}
+
+/* --- COMENTARIOS --- */
+.comentario-item {
+    background: var(--bg-input);
+    border-left: 4px solid var(--azul-neon);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.stars {
+    color: #FFD700; /* Dorado para las estrellas */
+}
+
+/* --- RESPONSIVE (Móvil) --- */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    h1 { font-size: 1.6rem; }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    nav a {
+        display: block;
+        text-align: center;
+        background-color: #252525;
+    }
+}
