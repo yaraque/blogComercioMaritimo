@@ -319,4 +319,73 @@ tr:nth-child(even) td {
     .student-card {
         margin-bottom: 15px;
     }
+
+    /* =========================================
+   ESTILOS DEL MENÚ HAMBURGUESA
+   ========================================= */
+
+/* Por defecto (PC), el botón de menú está oculto */
+.menu-toggle {
+    display: none; 
+    background: none;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* --- REGLAS SOLO PARA CELULARES (Menos de 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Mostrar el botón de las 3 rayitas */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 2. Configurar el menú para que sea desplegable */
+    nav#main-nav {
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 60px; /* Altura del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-marino);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        padding-bottom: 20px;
+    }
+
+    /* Esta clase se agrega con JS cuando tocas el botón */
+    nav#main-nav.active {
+        display: block; /* ¡Aparece! */
+        animation: bajarMenu 0.3s ease-out;
+    }
+
+    /* Ajustar la lista para que sea vertical */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav a {
+        display: block;
+        padding: 15px;
+        width: 100%;
+    }
+}
+
+/* Animación suave al bajar */
+@keyframes bajarMenu {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 }
