@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dejar Comentario | Blog Marítimo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Volver al Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Tu opinión es importante</h1>
+        <p>Estás comentando sobre: <strong id="titulo-tema" style="color: var(--color-secundario);">Tema General</strong></p>
+
+        <div class="comment-section">
+            <form id="commentForm">
+                <input type="hidden" id="origen_tema" value="general">
+
+                <div class="form-group">
+                    <label>Nombre de Usuario:</label>
+                    <input type="text" id="nombre" required placeholder="Ej: Maria_Ingenieria">
+                </div>
+
+                <div class="form-group">
+                    <label>Puntuación:</label>
+                    <select id="puntuacion">
+                        <option value="5">★★★★★ (Excelente)</option>
+                        <option value="4">★★★★ (Muy Bueno)</option>
+                        <option value="3">★★★ (Normal)</option>
+                        <option value="2">★★ (Regular)</option>
+                        <option value="1">★ (Malo)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Comentario:</label>
+                    <textarea id="mensaje" rows="6" required placeholder="Escribe aquí tu opinión..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Publicar Comentario</button>
+                <br><br>
+                <a href="javascript:history.back()" style="display:block; text-align:center; color:#666;">Cancelar y Volver</a>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/logic.js"></script>
+    <script>
+        // Script específico para detectar de dónde viene el usuario
+        // Busca en la URL algo como ?origen=estrecho
+        const params = new URLSearchParams(window.location.search);
+        const origen = params.get('origen');
+        
+        const etiquetaTitulo = document.getElementById('titulo-tema');
+        const inputOculto = document.getElementById('origen_tema');
+
+        // Configurar el título según el origen
+        if(origen === 'estrecho') {
+            etiquetaTitulo.textContent = 'El Estrecho de Estambul';
+            inputOculto.value = 'estrecho';
+        } else if (origen === 'bocono') {
+            etiquetaTitulo.textContent = 'La Falla de Boconó';
+            inputOculto.value = 'bocono';
+        } else {
+            etiquetaTitulo.textContent = 'General';
+        }
+    </script>
+
+</body>
+</html>
