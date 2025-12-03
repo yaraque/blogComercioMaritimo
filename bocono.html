@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Falla de Boconó</title>
+    <link rel="icon" type="image/png" href="img/logo_uni.png">
+    <link rel="shortcut icon" href="img/logo_uni.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -26,9 +28,12 @@
         <h1>Impacto Social y Riesgo Sísmico</h1>
         <p class="intro">Una conexión geológica inesperada: ¿Qué tienen en común Estambul (Turquía) y los Andes Venezolanos?</p>
 
-        <h2>La Geología como Factor Común</h2>
-        <p>Mientras estudiamos el Estrecho de Estambul como ruta comercial, no podemos ignorar que la ciudad se asienta sobre la peligrosa <strong>Falla de Anatolia del Norte</strong>. De manera similar, Venezuela es atravesada por la <strong>Falla de Boconó</strong>.</p>
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_dC2kGv5uUqzKjC4XN5Rz1WdJ8Z2fLqX0oY3mB8nK5pQ7sT9vW4xE6rY1uI8oP0aS3dF5gH7jK9lM2cN4bV6xZ8/s1600/Mapa+Falla+Bocono.jpg" 
+             alt="Mapa Falla de Boconó" 
+             style="width: 100%; border: 2px solid var(--color-marino); padding: 5px; background: white;">
+        <p style="text-align: center; font-size: 0.8rem; color: #666; margin-top: -15px;"><em>Traza principal de la falla a través de los Andes venezolanos.</em></p>
 
+        <h2>Comparativa de Riesgo</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -40,46 +45,31 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Tipo de Falla</strong></td>
+                        <td><strong>Tipo</strong></td>
                         <td>Transformante (Lateral Derecha)</td>
                         <td>Transformante (Lateral Derecha)</td>
                     </tr>
                     <tr>
                         <td><strong>Riesgo Social</strong></td>
-                        <td><strong>Extremo:</strong> Cruza una megaciudad industrial de 15 millones de hab.</td>
-                        <td><strong>Alto:</strong> Atraviesa múltiples estados andinos (Mérida, Táchira, Trujillo).</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Impacto Económico</strong></td>
-                        <td>Puede paralizar el comercio en el Bósforo.</td>
-                        <td>Afecta la conectividad terrestre y agrícola de los Andes.</td>
+                        <td>Extremo (Megaciudad industrial).</td>
+                        <td>Alto (Mérida, Táchira, Trujillo).</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h2>La Falla de Boconó: Realidad Venezolana</h2>
-        <p>Esta falla geológica es la más importante del occidente venezolano. Históricamente, ha sido responsable de eventos devastadores como el <strong>Gran Terremoto de Los Andes (1894)</strong>.</p>
-        
-        
-        <h3>Cultura Preventiva: El Gran Reto</h3>
-        <p>Al igual que en Estambul, donde se refuerzan puentes y se preparan para el "Big One", la población en los Andes venezolanos convive con el riesgo. El desafío actual es la actualización de las construcciones antiguas (especialmente en zonas de pendiente) y la educación sísmica en las escuelas.</p>
+        <h2>La Realidad Venezolana</h2>
+        <p>Históricamente, la falla de Boconó ha sido responsable de eventos devastadores como el <strong>Gran Terremoto de Los Andes (1894)</strong>. El desafío actual es la actualización de las construcciones antiguas y fomentar la cultura preventiva.</p>
 
         <div class="comment-section" style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd;">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
                 <h3>💬 Debate Social</h3>
-                <a href="comentarios.html?origen=bocono" class="btn-enviar" style="width: auto; padding: 10px 20px; text-decoration: none;">
-                    ✍️ Opinar sobre el riesgo
-                </a>
+                <a href="comentarios.html?origen=bocono" class="btn-enviar" style="width: auto; padding: 10px 20px; text-decoration: none;">✍️ Opinar sobre el riesgo</a>
             </div>
-            
-            <div id="lista-comentarios" data-tema="bocono" style="margin-top: 20px;">
-                <p>Cargando opiniones...</p>
-            </div>
+            <div id="lista-comentarios" data-tema="bocono" style="margin-top: 20px;"><p>Cargando opiniones...</p></div>
         </div>
     </div>
 
     <script src="js/logic.js"></script>
-
 </body>
 </html>
