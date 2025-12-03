@@ -1,204 +1,257 @@
-/* --- VARIABLES (Paleta Moderna Azul/Negro) --- */
+/* =========================================
+   VARIABLES DE DISEÑO (PALETA CORPORATIVA)
+   ========================================= */
 :root {
-    --bg-body: #121212;       /* Negro suave de fondo */
-    --bg-card: #1E1E1E;       /* Gris oscuro para contenedores */
-    --bg-input: #2D2D2D;      /* Gris para inputs */
+    --color-marino: #002244;    /* Azul Marino Profundo (Base estructural) */
+    --color-claro: #00A3E0;     /* Azul Cian/Claro (Acentos modernos) */
+    --color-negro: #1a1a1a;     /* Negro suave (Texto principal) */
+    --color-gris-texto: #444444;/* Gris oscuro (Párrafos) */
+    --color-fondo: #ffffff;     /* Blanco absoluto (Limpieza) */
+    --color-gris-claro: #f4f6f7;/* Fondos secundarios */
     
-    --azul-neon: #3b82f6;     /* Azul vibrante moderno */
-    --azul-oscuro: #1e40af;   /* Azul más serio para bordes/hover */
-    
-    --texto-principal: #E0E0E0; /* Blanco hueso (no quema la vista) */
-    --texto-secundario: #A0A0A0; /* Gris para textos menos importantes */
-    
-    --borde-radio: 12px;      /* Bordes más redondeados = más moderno */
-    --sombra: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra profunda */
+    --sombra-card: 0 4px 20px rgba(0, 34, 68, 0.08); /* Sombra muy sutil y elegante */
+    --borde-radio: 8px;         /* Bordes redondeados modernos */
 }
 
-/* --- RESET BÁSICO --- */
+/* =========================================
+   RESET Y CONFIGURACIÓN BÁSICA
+   ========================================= */
 * {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Fundamental para que el padding no rompa el diseño */
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al navegar */
 }
 
 body {
     font-family: 'Segoe UI', 'Roboto', Helvetica, Arial, sans-serif;
-    background-color: var(--bg-body);
-    color: var(--texto-principal);
+    background-color: var(--color-gris-claro); /* Fondo gris muy tenue para que el contenido resalte */
+    color: var(--color-negro);
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 1.6; /* Lectura cómoda */
 }
 
-/* --- NAVEGACIÓN (Estilo Glassmorphism) --- */
+/* =========================================
+   ENCABEZADO Y NAVEGACIÓN (Sticky Header)
+   ========================================= */
 header {
-    background-color: rgba(30, 30, 30, 0.95); /* Semitransparente */
-    border-bottom: 1px solid #333;
-    position: sticky;
+    background-color: var(--color-marino);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position: sticky; /* El menú se queda fijo al bajar */
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px); /* Efecto vidrio borroso moderno */
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    flex-wrap: wrap; /* Permite que los botones bajen si no caben en pantalla */
+    gap: 15px;
     padding: 15px;
     margin: 0;
 }
 
 nav a {
-    color: var(--texto-principal);
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     padding: 8px 16px;
-    border-radius: 20px; /* Botones tipo cápsula */
+    border-radius: 4px;
     transition: all 0.3s ease;
-    letter-spacing: 0.5px;
+    border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
-    background-color: var(--azul-neon);
-    color: white;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5); /* Resplandor azul */
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom-color: var(--color-claro); /* Subrayado azul claro al pasar el mouse */
 }
 
-/* --- CONTENEDORES --- */
+/* =========================================
+   CONTENEDOR PRINCIPAL
+   ========================================= */
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1000px; /* Ancho máximo en PC */
     margin: 40px auto;
-    background: var(--bg-card);
+    background: var(--color-fondo);
     padding: 40px;
     border-radius: var(--borde-radio);
-    box-shadow: var(--sombra);
-    border: 1px solid #333; /* Borde sutil */
+    box-shadow: var(--sombra-card);
+    border: 1px solid #e0e0e0;
 }
 
-/* --- TIPOGRAFÍA --- */
+/* =========================================
+   TIPOGRAFÍA Y TÍTULOS
+   ========================================= */
 h1 {
-    color: var(--azul-neon);
+    color: var(--color-marino);
     margin-top: 0;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    border-bottom: 2px solid var(--azul-oscuro);
+    font-size: 2.2rem;
+    position: relative;
     display: inline-block;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Detalle decorativo debajo del H1 */
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-claro);
+    margin-top: 8px;
+    border-radius: 2px;
 }
 
 h2 {
-    color: white;
+    color: var(--color-negro);
+    border-left: 5px solid var(--color-claro); /* Línea vertical azul claro */
+    padding-left: 15px;
     margin-top: 40px;
     font-size: 1.5rem;
 }
 
 h3 {
-    color: var(--texto-secundario);
+    color: var(--color-marino);
+    font-weight: 600;
 }
 
 p, li {
-    color: #cccccc;
+    color: var(--color-gris-texto);
 }
 
-/* --- IMÁGENES --- */
+/* =========================================
+   IMÁGENES (RESPONSIVE)
+   ========================================= */
 img {
-    max-width: 100%;
-    height: auto;
+    max-width: 100%; /* La imagen nunca será más ancha que la pantalla */
+    height: auto;    /* Mantiene la proporción */
     border-radius: var(--borde-radio);
     display: block;
-    margin: 20px auto;
-    box-shadow: var(--sombra);
-    border: 2px solid #333;
+    margin: 25px auto;
+    box-shadow: var(--sombra-card);
 }
 
-/* --- FORMULARIOS (Adaptados a Dark Mode) --- */
+/* =========================================
+   FORMULARIOS
+   ========================================= */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-marino);
+}
+
 input, select, textarea {
     width: 100%;
-    padding: 15px;
-    background-color: var(--bg-input);
-    border: 1px solid #444;
-    border-radius: 8px;
-    color: white;
-    margin-top: 8px;
+    padding: 12px;
+    background-color: #fcfcfc;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
     font-size: 1rem;
     font-family: inherit;
-    transition: border 0.3s;
+    transition: border-color 0.3s;
+    color: var(--color-negro);
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus, select:focus, textarea:focus {
     outline: none;
-    border-color: var(--azul-neon); /* Borde azul al escribir */
+    border-color: var(--color-claro); /* Borde azul claro al escribir */
+    background-color: #fff;
 }
 
-/* --- BOTONES --- */
+/* =========================================
+   BOTONES
+   ========================================= */
 button.btn-enviar, .btn-enviar {
-    background: linear-gradient(45deg, var(--azul-oscuro), var(--azul-neon));
+    background-color: var(--color-marino);
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 14px 25px;
     cursor: pointer;
     font-size: 1rem;
-    border-radius: 8px;
-    width: 100%;
+    border-radius: 6px;
     font-weight: bold;
-    margin-top: 20px;
-    text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    transition: transform 0.2s, background-color 0.3s;
+    display: inline-block;
+    text-align: center;
 }
 
 button.btn-enviar:hover, .btn-enviar:hover {
-    transform: translateY(-2px); /* Se eleva un poco */
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+    background-color: var(--color-claro);
+    transform: translateY(-2px); /* Efecto de elevación */
 }
 
-/* --- TARJETAS EQUIPO --- */
+/* =========================================
+   TARJETAS DE EQUIPO (GRID RESPONSIVE)
+   ========================================= */
 .team-grid {
     display: grid;
+    /* Magia responsive: crea columnas automáticamente según el ancho */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .student-card {
-    background: #252525;
-    padding: 30px;
+    background: white;
+    padding: 25px;
     text-align: center;
     border-radius: var(--borde-radio);
-    border-top: 4px solid var(--azul-neon);
+    box-shadow: var(--sombra-card);
+    border-bottom: 4px solid var(--color-marino);
     transition: transform 0.3s;
+    border: 1px solid #eee;
 }
 
 .student-card:hover {
     transform: translateY(-5px);
-    background: #2a2a2a;
+    border-bottom-color: var(--color-claro);
 }
 
 .student-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--azul-neon);
+    object-fit: cover; /* Evita que la foto se deforme */
+    border: 3px solid var(--color-claro);
+    padding: 3px;
+    background: white;
     margin-bottom: 15px;
 }
 
-/* --- TABLAS --- */
+/* =========================================
+   TABLAS (Responsive con scroll horizontal)
+   ========================================= */
+.table-responsive {
+    overflow-x: auto; /* Permite scroll lateral en móviles */
+    margin: 20px 0;
+    border-radius: var(--borde-radio);
+    box-shadow: var(--sombra-card);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: var(--bg-input);
-    border-radius: 8px;
-    overflow: hidden;
+    background: white;
+    min-width: 500px; /* Asegura que la tabla no se aplaste demasiado */
 }
 
 th {
-    background-color: var(--azul-oscuro);
+    background-color: var(--color-marino);
     color: white;
     padding: 15px;
     text-align: left;
@@ -206,40 +259,64 @@ th {
 
 td {
     padding: 15px;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #eee;
 }
 
-/* --- COMENTARIOS --- */
+tr:nth-child(even) td {
+    background-color: #f8f9fa; /* Filas alternas */
+}
+
+/* =========================================
+   COMENTARIOS
+   ========================================= */
 .comentario-item {
-    background: var(--bg-input);
-    border-left: 4px solid var(--azul-neon);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 0 8px 8px 0;
+    background: #f0f8ff; /* Azul muy pálido (AliceBlue) */
+    border-left: 4px solid var(--color-claro);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 0 6px 6px 0;
 }
 
 .stars {
-    color: #FFD700; /* Dorado para las estrellas */
+    color: #ffc107; /* Dorado */
+    font-size: 1.1rem;
 }
 
-/* --- RESPONSIVE (Móvil) --- */
+/* =========================================
+   MEDIA QUERIES (MÓVILES Y TABLETS)
+   ========================================= */
 @media (max-width: 768px) {
+    /* Ajustes generales para pantallas pequeñas */
+    
     .container {
-        width: 95%;
-        padding: 20px;
+        width: 95%; /* Aprovecha más ancho de pantalla */
+        padding: 20px; /* Menos padding interno */
         margin: 20px auto;
+        box-shadow: none; /* Quitamos sombra para ganar limpieza en móvil */
+        border: none;
     }
 
-    h1 { font-size: 1.6rem; }
+    h1 {
+        font-size: 1.7rem; /* Títulos más pequeños */
+    }
 
     nav ul {
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: column; /* Menú vertical */
+        gap: 5px;
+        padding: 10px;
     }
 
     nav a {
-        display: block;
+        display: block; /* Botones ocupan todo el ancho */
         text-align: center;
-        background-color: #252525;
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+    
+    img {
+        margin: 15px auto;
+    }
+    
+    .student-card {
+        margin-bottom: 15px;
     }
 }
